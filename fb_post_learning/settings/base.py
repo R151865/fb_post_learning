@@ -24,8 +24,11 @@ ALLOWED_HOSTS = [
     "fb-post-learning-beta.apigateway.in",
     "fb-post-learning-gamma.apigateway.in",
     "127.0.0.1",
-    "localhost"
+    "localhost",
+    "*",
 ]
+
+AUTH_USER_MODEL = "fb_post_clean_arch.User"
 
 ROOT_URLCONF = 'fb_post_learning.urls'
 
@@ -77,7 +80,7 @@ from ib_common.logger.log_custom_formatter import LogCustomFormatter
 
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': True,
+    'disable_existing_loggers': False,
     'filters': {
         'request_id': {
             '()': 'log_request_id.filters.RequestIDFilter'
