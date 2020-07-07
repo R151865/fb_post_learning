@@ -14,12 +14,11 @@ from fb_post.validators import InvalidPostException, UserCannotDeletePostExcepti
 
 @validate_decorator(validator_class=ValidatorClass)
 def api_wrapper(*args, **kwargs):
-
     post_id = kwargs['post_id']
     user = kwargs['user']
-
     try:
         delete_post(user_id=user.id, post_id=post_id)
+
     except InvalidPostException:
         raise BadRequest(*INVALID_POST)
     except UserCannotDeletePostException:

@@ -96,7 +96,7 @@ class PresenterImplementation(PresenterInterface):
 
 
     def _get_comment_dicts_details(
-            self, comments, users_dicts
+            self, comments, users_dicts,
             comment_replies_count_dict,
             comment_reaction_dict):
 

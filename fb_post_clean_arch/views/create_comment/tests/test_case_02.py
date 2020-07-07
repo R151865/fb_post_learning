@@ -36,6 +36,9 @@ class TestCase02CreateCommentAPITestCase(CustomTestUtils):
             username=username, password=password
         )
 
+        from fb_post_clean_arch.models.factories import PostFactory
+        a = PostFactory()
+
     def test_case(self):
         self.default_test_case()
 

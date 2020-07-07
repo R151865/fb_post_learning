@@ -28,7 +28,7 @@ ALLOWED_HOSTS = [
     "*",
 ]
 
-AUTH_USER_MODEL = "fb_post_clean_arch.User"
+# AUTH_USER_MODEL = "fb_post.User"
 
 ROOT_URLCONF = 'fb_post_learning.urls'
 

@@ -3,7 +3,7 @@
 APP_NAME = "fb_post"
 OPERATION_NAME = "get_reaction_metrics"
 REQUEST_METHOD = "get"
-URL_SUFFIX = "posts/{post_id}/metrics/v1/"
+URL_SUFFIX = "posts/{post_id}/reaction/metrics/v1/"
 
 from .test_case_01 import TestCase01GetReactionMetricsAPITestCase
 

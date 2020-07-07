@@ -7,8 +7,10 @@ URL_SUFFIX = "comment/create/v1/"
 
 from .test_case_01 import TestCase01CreateCommentAPITestCase
 from .test_case_02 import TestCase02CreateCommentAPITestCase
+from .test_case_03 import TestCase03CreateCommentAPITestCase
 
 __all__ = [
     "TestCase01CreateCommentAPITestCase",
-    "TestCase02CreateCommentAPITestCase"
+    "TestCase02CreateCommentAPITestCase",
+    "TestCase03CreateCommentAPITestCase"
 ]

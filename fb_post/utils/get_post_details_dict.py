@@ -64,7 +64,9 @@ def get_post_details_dict(post_obj):
     comments_with_all_details_list = get_comment_details_dict(
         post_comments_with_replies_dict)
 
-    post_dict = get_post_dict(post_obj)
+    post_dict = {}
+    post_dict.update(get_post_dict(post_obj))
+    
     post_dict['comments'] = comments_with_all_details_list
     post_dict['comments_count'] = len(comments_with_all_details_list)
 

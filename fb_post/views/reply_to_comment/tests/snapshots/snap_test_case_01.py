@@ -4,31 +4,36 @@ from __future__ import unicode_literals
 
 from snapshottest import Snapshot
 
+
 snapshots = Snapshot()
 
-snapshots['TestCase01DeletePostAPITestCase::test_case status'] = 200
+snapshots['TestCase01ReplyToCommentAPITestCase::test_case status'] = 400
 
-snapshots['TestCase01DeletePostAPITestCase::test_case body'] = b''
+snapshots['TestCase01ReplyToCommentAPITestCase::test_case body'] = {
+    'content': [
+        'This field may not be blank.'
+    ]
+}
 
-snapshots['TestCase01DeletePostAPITestCase::test_case header_params'] = {
+snapshots['TestCase01ReplyToCommentAPITestCase::test_case header_params'] = {
     'content-language': [
         'Content-Language',
         'en'
     ],
     'content-length': [
-        '0',
+        '44',
         'Content-Length'
     ],
     'content-type': [
         'Content-Type',
-        'text/html; charset=utf-8'
+        'application/json'
     ],
     'vary': [
-        'Accept-Language, Origin, Cookie',
+        'Accept-Language, Origin',
         'Vary'
     ],
     'x-frame-options': [
-        'SAMEORIGIN',
+        'DENY',
         'X-Frame-Options'
     ]
 }

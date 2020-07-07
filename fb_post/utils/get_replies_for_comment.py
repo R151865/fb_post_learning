@@ -2,11 +2,10 @@ from fb_post.models import Comment
 from .utils_validators import is_valid_comment
 from .utils_dicts import get_user_dict, get_date_time
 
-
 def get_reply_dict(reply):
 
     reply_user_dict = get_user_dict(reply.commented_by)
-    replied_date_time = get_date_time_as_string(reply.commented_at)
+    replied_date_time = get_date_time(reply.commented_at)
 
     return {
         "comment_id": reply.id,
@@ -14,6 +13,7 @@ def get_reply_dict(reply):
         "commented_at": replied_date_time,
         "comment_content": reply.content
     }
+
 
 
 def get_replies_for_comment(comment_id):
@@ -29,3 +29,4 @@ def get_replies_for_comment(comment_id):
         replies_dict_in_list.append(get_reply_dict(reply))
 
     return replies_dict_in_list
+

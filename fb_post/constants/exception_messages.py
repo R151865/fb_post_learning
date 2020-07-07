@@ -20,9 +20,9 @@ INVALID_REACTION_TYPE = (
     )
 
 USER_CANNOT_DELETE_POST = (
-    'Please valid user to delete post', 'USER_CANNOT_DELETE_POST'
+    'Please valid user to delete post', "USER_CANNOT_DELETE_POST"
     )
 
 INVALID_REPLY_CONTENT = (
-    'Please valid reply content', 'INVALID_REPLY_CONTENT'
+    'Please valid reply content', "INVALID_REPLY_CONTENT"
     )

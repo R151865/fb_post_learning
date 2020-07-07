@@ -17,6 +17,7 @@ def get_reaction_list(reactions_list):
 
     count = len(unique_reactions_list)
     reaction_type_list = list(set(unique_reactions_list))
+    reaction_type_list.sort()
 
     reactions_dict = {
         'count': count,

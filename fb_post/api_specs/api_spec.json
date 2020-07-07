@@ -475,38 +475,6 @@
         },
         "InvalidPostIdResponse": {
             "description": "Post DoesNotExists"
-        },
-        "GetResourcesResponse": {
-            "description": "get list of resources",
-            "schema": {
-                "type": "array",
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "resource_name": {
-                            "type": "string"
-                        },
-                        "source_name": {
-                            "type": "string"
-                        },
-                        "image_url": {
-                            "type": "string"
-                        },
-                        "link": {
-                            "type": "string"
-                        },
-                        "description": {
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "resource_name",
-                        "image_url",
-                        "service_name",
-                        "description"
-                    ]
-                }
-            }
         }
     },
 
@@ -660,7 +628,7 @@
                 "summary": "Get Count of Total Reaction",
                 "description": "Returns count of total reactions count in db. This is idempotent",
                 "security": [{
-                    "oauth": []
+                    "oauth": ["read"]
                 }],
                 "parameters": [],
                 "responses": {
@@ -701,7 +669,7 @@
                 "summary": "Get Post",
                 "description": "get details of post in dict ",
                 "security": [{
-                    "oauth": []
+                    "oauth": ["read"]
                 }],
                 "parameters": [{
                     "$ref": "#/parameters/PostIdPathParameters"
@@ -725,7 +693,7 @@
                 "summary": "Get Posts With Having More Positive Reactions",
                 "description": "Returns list of posts ids which  having more positive reactions. This is idempotent",
                 "security": [{
-                    "oauth": []
+                    "oauth": ["read"]
                 }],
                 "responses": {
                     "200": {
@@ -741,7 +709,7 @@
                 "summary": "Get Reactions To Post",
                 "description": "Returns reactions to post. This is idempotent",
                 "security": [{
-                    "oauth": []
+                    "oauth": ["read"]
                 }],
                 "parameters": [{
                     "$ref": "#/parameters/PostIdPathParameters"
@@ -763,7 +731,7 @@
                 "summary": "Get Posts Reacted by User",
                 "description": " Returns list of posts ids reacted by user. This is idempotent",
                 "security": [{
-                    "oauth": []
+                    "oauth": ["read"]
                 }],
                 "parameters": [],
                 "responses": {
@@ -780,7 +748,7 @@
                 "summary": "Get Posts of User",
                 "description": "Returns list of post details in dict. This is idempotent",
                 "security": [{
-                    "oauth": []
+                    "oauth": ["read"]
                 }],
                 "parameters": [{
                         "$ref": "#/parameters/OffsetQueryParameters"
@@ -803,7 +771,7 @@
                 "summary": "Get Reaction Metrics of Post",
                 "description": " return list of reaction metrics of post. This is idempotent",
                 "security": [{
-                    "oauth": []
+                    "oauth": ["read"]
                 }],
                 "parameters": [{
                     "$ref": "#/parameters/PostIdPathParameters"
@@ -825,7 +793,7 @@
                 "summary": "Get Replies Comment",
                 "description": "Returns list of replies details. This is idempotent ",
                 "security": [{
-                    "oauth": []
+                    "oauth": ["read"]
                 }],
                 "parameters": [{
                     "$ref": "#/parameters/CommentIdPathParameters"
@@ -852,7 +820,7 @@
                 }],
                 "responses": {
                     "200": {
-                        "$ref": "#/responses/GetResourcesResponse"
+                        "description": "OK"
                     }
                 }
             }

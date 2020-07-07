@@ -39,12 +39,11 @@ class TestCase01CreatePostAPITestCase(CustomAPITestCase):
 
     def test_case(self):
         response = self.default_test_case()
-        # Returns response object.
-        # Which can be used for further response object checks.
-        # Add database state checks here.
+
         response_content = json.loads(response.content)
         post_id = response_content['post_id']
         post = Post.objects.select_related('user').get(id=post_id)
+
         user_id = post.user.id
         post_content = post.post_content
 

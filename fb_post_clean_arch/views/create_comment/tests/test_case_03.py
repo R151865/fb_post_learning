@@ -6,22 +6,9 @@ from fb_post_clean_arch.models import Comment, Post, User
 from fb_post_clean_arch.utils.custom_test_utils_2 import CustomTestUtils
 from . import APP_NAME, OPERATION_NAME, REQUEST_METHOD, URL_SUFFIX
 
-
+from fb_post_clean_arch.models.factories import *
 import factory
 
-class UserFactory(factory.django.DjangoModelFactory):
-    class Meta:
-        model = User
-    name = factory.Sequence(lambda n: "user%d" % n)
-    profile_pic = factory.Sequence(lambda n: "profile_pic/user%d.png" % n)
-
-
-class PostFactory(factory.django.DjangoModelFactory):
-    class Meta:
-        model = Post
-    user = factory.SubFactory(UserFactory)
-    post_content = factory.Sequence(lambda n: "post content%d" % n)
-    pub_date_time = factory.LazyFunction(datetime.datetime.now)
 
 
 
@@ -54,6 +41,7 @@ class TestCase03CreateCommentAPITestCase(CustomTestUtils):
         super(TestCase03CreateCommentAPITestCase, self).setupUser(
             username=username, password=password
         )
+
         PostFactory.create()
 
     def test_case(self):

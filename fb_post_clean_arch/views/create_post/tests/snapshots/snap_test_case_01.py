@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 from snapshottest import Snapshot
 
+
 snapshots = Snapshot()
 
 snapshots['TestCase01CreatePostAPITestCase::test_case status'] = 201
@@ -26,11 +27,11 @@ snapshots['TestCase01CreatePostAPITestCase::test_case header_params'] = {
         'text/html; charset=utf-8'
     ],
     'vary': [
-        'Accept-Language, Origin, Cookie',
+        'Accept-Language, Origin',
         'Vary'
     ],
     'x-frame-options': [
-        'SAMEORIGIN',
+        'DENY',
         'X-Frame-Options'
     ]
 }

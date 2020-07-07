@@ -1,26 +1,23 @@
-# import datetime
+from fb_post_clean_arch.models import *
+import factory
+import datetime
 
-# from fb_post.models import (
-#     User, Post, Comment, Reaction, REACTION_CHOICES
-# )
-# import factory
-# import factory.fuzzy
+import factory
 
-
-# class UserFactory(factory.django.DjangoModelFactory):
-#     class Meta:
-#         model = User
-#     name = factory.Sequence(lambda n: "user%d" % n)
-#     profile_pic = factory.Sequence(lambda n: "profile_pic/user%d.png" % n)
+class UserFactory(factory.django.DjangoModelFactory):
+    class Meta:
+        model = User
+    name = factory.Sequence(lambda n: "user%d" % n)
+    username = factory.Sequence(lambda n: "username %d" % n)
+    profile_pic = factory.Sequence(lambda n: "profile_pic/user%d.png" % n)
 
 
-# class PostFactory(factory.django.DjangoModelFactory):
-#     class Meta:
-#         model = Post
-
-#     posted_by = factory.SubFactory(UserFactory)
-#     content = factory.Sequence(lambda n: "post content%d" % n)
-#     posted_at = factory.LazyFunction(datetime.datetime.now)
+class PostFactory(factory.django.DjangoModelFactory):
+    class Meta:
+        model = Post
+    user = factory.SubFactory(UserFactory)
+    post_content = factory.Sequence(lambda n: "post content%d" % n)
+    pub_date_time = factory.LazyFunction(datetime.datetime.now)
 
 
 # class CommentFactory(factory.django.DjangoModelFactory):

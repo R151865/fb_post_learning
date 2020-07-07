@@ -6,7 +6,11 @@ REQUEST_METHOD = "post"
 URL_SUFFIX = "posts/{post_id}/react/v1/"
 
 from .test_case_01 import TestCase01ReactToPostAPITestCase
+from .test_case_02 import TestCase02ReactToPostAPITestCase
+from .test_case_03 import TestCase03ReactToPostAPITestCase
 
 __all__ = [
-    "TestCase01ReactToPostAPITestCase"
+    "TestCase01ReactToPostAPITestCase",
+    "TestCase02ReactToPostAPITestCase",
+    "TestCase03ReactToPostAPITestCase"
 ]

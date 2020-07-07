@@ -23,6 +23,7 @@ TEST_CASE = {
     },
 }
 
+from fb_post_clean_arch.models.factories import *
 
 class TestCase01CreateCommentAPITestCase(CustomTestUtils):
     app_name = APP_NAME
@@ -35,35 +36,32 @@ class TestCase01CreateCommentAPITestCase(CustomTestUtils):
         super(TestCase01CreateCommentAPITestCase, self).setupUser(
             username=username, password=password
         )
-        print("*****************************")
-        print("this is sulthan", self.foo_user)
-        print("user_id", self.foo_user.id)
-        print("*******************************")
-        
+
+        PostFactory()
         # self.create_user()
         # self.create_posts()
 
     def test_case(self):
         print("@@@@@@@@@@@@@@@@@@@@@")
         response = self.default_test_case()
-        # import json
+        import json
 
-        # response_content = json.loads(response.content)
+        response_content = json.loads(response.content)
 
-        # comment_id = response_content['comment_id']
+        comment_id = response_content['comment_id']
 
-        # comment = Comment.objects.get(id=comment_id)
+        comment = Comment.objects.get(id=comment_id)
 
-        # self.assert_match_snapshot(
-        #     name='user_id',
-        #     value=comment.user.id
-        # )
+        self.assert_match_snapshot(
+            name='user_id',
+            value=comment.user.id
+        )
 
-        # self.assert_match_snapshot(
-        #     name='post_id',
-        #     value=comment.post.id
-        # )
-        # self.assert_match_snapshot(
-        #     name='comment_text',
-        #     value=comment.comment_text
-        # )
+        self.assert_match_snapshot(
+            name='post_id',
+            value=comment.post.id
+        )
+        self.assert_match_snapshot(
+            name='comment_text',
+            value=comment.comment_text
+        )
